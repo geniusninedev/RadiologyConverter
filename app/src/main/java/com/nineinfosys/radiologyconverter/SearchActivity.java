@@ -41,7 +41,7 @@ public class SearchActivity extends AppCompatActivity implements TextWatcher {
         //customize toolbar
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setTitle("Search By Unit");
+        getSupportActionBar().setTitle("Search Unit");
 
 
         // Listview Data
