@@ -31,6 +31,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.radiologyconverter.ConverterActivityList.ConversionRadiationExposureListActivity;
 import com.nineinfosys.radiologyconverter.Engin.RadiationExposureConverter;
 import com.nineinfosys.radiologyconverter.R;
@@ -77,7 +80,10 @@ public class RadiationExposureActivity extends AppCompatActivity implements View
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Radiation Exposure");
 
-
+        MobileAds.initialize(RadiationExposureActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         formatsetting();
 
 

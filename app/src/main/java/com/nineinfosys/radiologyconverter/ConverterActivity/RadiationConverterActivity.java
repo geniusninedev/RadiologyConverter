@@ -31,6 +31,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.radiologyconverter.ConverterActivityList.RadiationConverterListAcivity;
 import com.nineinfosys.radiologyconverter.Engin.RadiationConverter;
 import com.nineinfosys.radiologyconverter.R;
@@ -92,6 +95,10 @@ public class RadiationConverterActivity extends AppCompatActivity implements Vie
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Radiation-Activity");
 
+        MobileAds.initialize(RadiationConverterActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverter);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         formatsetting();
 
         //keyboard hidden first time

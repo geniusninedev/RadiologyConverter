@@ -22,6 +22,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.nineinfosys.radiologyconverter.Adapter.RecyclerViewConversionListAdapter;
 import com.nineinfosys.radiologyconverter.Engin.RadiationExposureConverter;
 import com.nineinfosys.radiologyconverter.R;
@@ -78,6 +81,11 @@ public class ConversionRadiationExposureListActivity extends AppCompatActivity i
             window.setStatusBarColor(Color.parseColor("#a10000"));
         }
 
+
+        MobileAds.initialize(ConversionRadiationExposureListActivity.this, getString(R.string.ads_app_id));
+        AdView mAdView = (AdView) findViewById(R.id.adViewUnitConverterList);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         //format of decimal pint
         formatsetting();
 
